@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     headpostContainer: { // Cabeçalho do Post-it
       backgroundColor: '#C1D66D',
-      alignSelf: 'flex-start',
+      alignSelf: 'flex-end',
       width: '94%',
       maxHeight: 100,
       padding: 15,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     postContainer: { //Container para escrever o Post-it
       width:'94%',
       backgroundColor: '#BEDE6C',
-      alignSelf:'flex-start',
+      alignSelf:'flex-end',
       padding: 10,
       maxHeight: 400, //AJUSTAR
     },

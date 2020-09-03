@@ -1,24 +1,25 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
-import styles from './styles';
+
+import styles from './styles'
+
 import lupa from '../../assets/images/icons/lupa.png';
-//import coracao from '../../assets/images/icons/coracao.png';
 import mais from '../../assets/images/icons/mais.png';
 
 function Landing() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>re-Minder</Text>
+            <Text style={styles.title}>Re-Minder</Text>
 
             
         
             <View style ={styles.buttonsContainer}>
                 
-                <TouchableOpacity style={[styles.button, styles.buttonSecondary]}> 
+                <TouchableOpacity style={styles.buttonSecondary}> 
                     <Image source={lupa} /> 
 
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.button, styles.buttonTerciary]}>
+                <TouchableOpacity style={styles.buttonTerciary}>
                     <Image source={mais} />
 
                 </TouchableOpacity>
