@@ -1,17 +1,10 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
 app.use(express.json());
 
-app.delete('/', (request, response) => {
-    console.log(request.params);
-
-    const users=[
-        { name: 'daniel', age: 22 },
-    ];
-
-    return response.json(users)
-});
+app.use(routes);
 
 app.listen(3333);
