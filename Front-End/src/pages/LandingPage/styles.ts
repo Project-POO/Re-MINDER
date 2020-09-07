@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -8,29 +9,62 @@ const styles = StyleSheet.create({
 
     title: {
         fontSize: 40,
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins_400Regular',
         color: '#FFF07F',
         marginTop: 20,    
         alignSelf:'center',
+        fontWeight: 'bold',
     },
 
     buttonsContainer:{
+        top: 455,
         flexDirection:'row',
-        justifyContent: 'space-between', 
+        justifyContent: 'space-between',
         backgroundColor:'#FFF398',
         width: '100%',
-        resizeMode: 'contain',
+        alignItems: 'center' //centraliza e coloca lá para direita o que estava escrito no header
     },
 
+    button: {
+        alignItems: 'center', //centraliza e coloca lá para direita o que estava escrito no header
+    },
+
+    buttonPrimary:{
+        marginTop: 3, //3
+        //paddingHorizontal: 30, //30
+        width: '33%'
+    },
+    
     buttonSecondary:{
-        marginTop: 5,
-        paddingHorizontal: 40,
+        marginTop: 3,
+        width: '33%'
     },
 
-    buttonTerciary:{
-        marginTop: 5,
-        paddingHorizontal: 40,
-        marginBottom: 16,
+    buttonTertiary:{
+        marginTop: 3, //3
+        width: '33%'
+        //paddingHorizontal: 30, //30
+    },
+    
+    buttontext1:{
+        fontFamily: 'Poppins_400Regular',
+        color: '#333',
+        fontSize: 10,
+        marginTop: 6,
+    },
+
+    buttontext2:{
+        fontFamily: 'Poppins_400Regular',
+        color: '#333',
+        fontSize: 10,
+        marginTop: 8,
+    },
+
+    buttontext3:{
+        fontFamily: 'Poppins_400Regular',
+        color: '#333',
+        fontSize: 10,
+        marginTop: 2, 
     },
 
 });
