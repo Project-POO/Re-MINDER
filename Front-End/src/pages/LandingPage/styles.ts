@@ -16,13 +16,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
+    PostView:{
+        flex:1,
+        backgroundColor: '#9C4C25', //esse style todo foi feito pra ser o local onde vai entrar os post-it
+    },
+
     buttonsContainer:{
-        top: 455,
         flexDirection:'row',
         justifyContent: 'space-between',
         backgroundColor:'#FFF398',
         width: '100%',
-        alignItems: 'center' //centraliza e coloca lá para direita o que estava escrito no header
+        alignItems: 'center', //centraliza e coloca lá para direita o que estava escrito no header
     },
 
     button: {

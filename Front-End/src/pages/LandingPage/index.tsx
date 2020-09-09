@@ -23,6 +23,10 @@ function Landing() {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Re-MINDER</Text>
+            <View //ESSA VIEW É DEDICADA AO POST-IT
+            style={styles.PostView}>
+            
+            </View> 
             <View style ={styles.buttonsContainer}>   
                 <RectButton onPress={navigateToSendingCheck} style={[styles.button, styles.buttonPrimary]}> 
                     <Image source={check} /> 
