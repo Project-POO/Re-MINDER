@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, TextInput, Image, CheckBox} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
 
 import VectorIcon from '../../assets/images/icons/Vector.png';
 import SaveIcon from '../../assets/images/icons/Save.png';
@@ -14,19 +15,25 @@ function SendingPost () {
     const[textDate, onChangeDate] = useState(''); //o TextInput
     const[textPost, onChangePost] = useState('');
 
+    const {navigate} = useNavigation();
+
+    function navigateToLandingPage() {
+        navigate('LandingPage');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.headpostShadow}>
             <View style={styles.headpostContainer}>
                 <TextInput style={styles.headpostTitle} //Título
-                placeholder = "Title "
-                placeholderTextColor ="#000"
+                placeholder = "Título "
+                placeholderTextColor ="#708090"
                 onChangeText={text => onChangeTitle(text)}
                 defaultValue={textTitle}
                 /> 
                 <TextInput style={styles.headpostDate}  //Data
-                placeholder = "Month/day "
-                placeholderTextColor ="#000"
+                placeholder = "dia/mês/ano "
+                placeholderTextColor ="#708090"
                 onChangeText={text => onChangeDate(text)}
                 defaultValue={textDate}
                 />
@@ -38,7 +45,7 @@ function SendingPost () {
                 multiline={true}
                 numberOfLines={50}
                 placeholder = "Digite sua Lista aqui! "
-                placeholderTextColor ="#000"
+                placeholderTextColor ="#708090"
                 onChangeText={text => onChangePost(text)}
                 defaultValue={textPost}
                 />
@@ -53,7 +60,7 @@ function SendingPost () {
                         <Image source={AddIcon} />
                     </RectButton>
 
-                    <RectButton style={styles.buttonVec} //Botão para Voltar
+                    <RectButton onPress={navigateToLandingPage} style={styles.buttonVec} //Botão para Voltar
                     >
                         <Image source={VectorIcon} />
                     </RectButton>

@@ -1,9 +1,13 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
 app.use(express.json())
 
+<<<<<<< HEAD
+app.use(routes);
+=======
 //GET: Buscar ou listar uma informação
 //POST: Criar alguma nova informação
 //PUT:Atualizar uma informação exitente
@@ -24,5 +28,6 @@ app.post('/users',(request, response) =>{
 
     return response.json(users);
 });
+>>>>>>> 23ba0e5b6282a5f0cdaaa46b30b15655c7101e22
 
 app.listen(3333);
