@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontFamily: 'Poppins_400Regular',
         color: '#FFF07F',
-        marginTop: 20,    
+        marginTop: 30,    
         alignSelf:'center',
         fontWeight: 'bold',
     },

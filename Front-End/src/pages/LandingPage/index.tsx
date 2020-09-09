@@ -8,6 +8,7 @@ import styles from './styles'
 import check from '../../assets/images/icons/check.png';
 import lupa from '../../assets/images/icons/lupa.png';
 import post from '../../assets/images/icons/post.png';
+import reMinder from '../../assets/images/logo/LogoSmall.png';
 
 function Landing() {
     const {navigate} = useNavigation();
@@ -22,7 +23,14 @@ function Landing() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Re-MINDER</Text>
+            <View style={styles.title}>
+             <Image source={reMinder}/>
+            </View>
+
+
+
+
+
             <View //ESSA VIEW É DEDICADA AO POST-IT
             style={styles.PostView}>
             
