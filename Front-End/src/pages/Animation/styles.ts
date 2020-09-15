@@ -8,16 +8,14 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
 
-    title: {
-      fontFamily: 'Kalam_400Regular',
-      fontSize:45,
-      color:'#FFF07F',
+    titleContainer: {
+      marginLeft: 25
     },
 
     subTitle:{
       fontFamily: 'Poppins_400Regular',
       fontSize:20,
-      color:'#FFF07F',
+      color:'#FFF8AA',
     },
     
     buttonContainer:{

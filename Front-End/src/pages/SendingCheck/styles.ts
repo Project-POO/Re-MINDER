@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     headpostShadow: { // Sombra do Post-it
       backgroundColor: '#B0C265',
       marginTop: 40,
-      marginRight: 18,
       alignSelf: 'center',
       width: '85%',
       maxHeight: 100,
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
       width:'85%',
       backgroundColor: '#A2BD5E',
       alignSelf:'center',
-      marginRight: 18,
       maxHeight: 400,//AJUSTAR
     },
 

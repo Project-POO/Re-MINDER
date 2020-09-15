@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Animated, Text, View } from 'react-native';
+import { Animated, Text, View, Image } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { RectButton } from 'react-native-gesture-handler';
 
 import styles from './styles';
+
+import reMinder from '../../assets/images/logo/Logo.png';
 
 const FadeInView = () => {
     const [fadeAnim] = useState(new Animated.Value(0)); // Initial value for opacity: 0
@@ -18,8 +20,10 @@ const FadeInView = () => {
   
     return (
       <Animated.View style={{opacity: fadeAnim }}>
-        <Text style={styles.title}>Re-MINDER</Text>
-        <Text style={styles.subTitle}>clique aqui ou no título {'\n'} para  acessar o mural!  </Text>
+        <View style={styles.titleContainer}>
+         <Image source={reMinder}/>
+        </View>
+        <Text style={styles.subTitle}>Clique aqui ou no título {'\n'} para acessar o mural!</Text>
       </Animated.View>
     );
   };

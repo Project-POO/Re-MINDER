@@ -1,34 +1,57 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
 
 import styles from './styles'
 
+import check from '../../assets/images/icons/check.png';
 import lupa from '../../assets/images/icons/lupa.png';
-import mais from '../../assets/images/icons/mais.png';
+import post from '../../assets/images/icons/post.png';
+import reMinder from '../../assets/images/logo/LogoSmall.png';
 
 function Landing() {
+    const {navigate} = useNavigation();
+
+    function navigateToSendingPost() {
+        navigate('SendingPost');
+    }
+
+    function navigateToSendingCheck() {
+        navigate('SendingCheck');
+    }
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Re-Minder</Text>
+            <View style={styles.title}>
+             <Image source={reMinder}/>
+            </View>
 
+
+
+
+
+            <View //ESSA VIEW É DEDICADA AO POST-IT
+            style={styles.PostView}>
             
-        
-            <View style ={styles.buttonsContainer}>
+            </View> 
+            <View style ={styles.buttonsContainer}>   
+                <RectButton onPress={navigateToSendingCheck} style={[styles.button, styles.buttonPrimary]}> 
+                    <Image source={check} /> 
+                    <Text style ={styles.buttontext1}>CHECKLIST </Text>
+                </RectButton>
                 
-                <TouchableOpacity style={styles.buttonSecondary}> 
+                <RectButton style={[styles.button, styles.buttonSecondary]}> 
                     <Image source={lupa} /> 
+                    <Text style ={styles.buttontext2}>PESQUISAR </Text>
+                </RectButton>
 
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonTerciary}>
-                    <Image source={mais} />
-
-                </TouchableOpacity>
-                
-
+                <RectButton onPress={navigateToSendingPost} style={[styles.button, styles.buttonTertiary]}>
+                    <Image source={post} />
+                    <Text style ={styles.buttontext3}>POST-IT </Text>
+                </RectButton>
             </View>
         </View>  
-      
-
     );
     
 }
