@@ -46,7 +46,6 @@ function SendingPost () {
                 /> 
                 <TextInput style={styles.headpostDate}  //Data
                 placeholder = "dia/mês/ano "
-                keyboardType = "numeric"
                 placeholderTextColor ="#708090"
                 onChangeText={text => onChangeDate(text)}
                 defaultValue={textDate}
