@@ -7,7 +7,8 @@ import VectorIcon from '../../assets/images/icons/Vector.png';
 import SaveIcon from '../../assets/images/icons/Save.png';
 import AddIcon from '../../assets/images/icons/plus.png';
 
-import styles from './styles';
+import styles from './styles'; 
+
 
 
 function SendingPost () {
@@ -19,6 +20,18 @@ function SendingPost () {
 
     function navigateToLandingPage() {
         navigate('LandingPage');
+    }
+
+    const AddTextInput = () => {
+        return (
+            <TextInput style={styles.postText} //Texto do Post-it
+                editable = {true}
+                multiline = {true}
+                placeholderTextColor ="#708090"
+                onChangeText = {text => onChangePost(text)}
+                defaultValue = {textPost}
+            />
+        );
     }
 
     return (
@@ -33,22 +46,17 @@ function SendingPost () {
                 /> 
                 <TextInput style={styles.headpostDate}  //Data
                 placeholder = "dia/mês/ano "
+                keyboardType = "numeric"
                 placeholderTextColor ="#708090"
                 onChangeText={text => onChangeDate(text)}
                 defaultValue={textDate}
                 />
+                <AddTextInput/>
             </View>
             </View>
             <View style={styles.postContainerShadow}>
             <View style= {styles.postContainer}>
-                <TextInput style={styles.postText} //Texto do Post-it
-                multiline={true}
-                numberOfLines={50}
-                placeholder = "Digite sua Lista aqui! "
-                placeholderTextColor ="#708090"
-                onChangeText={text => onChangePost(text)}
-                defaultValue={textPost}
-                />
+                
                 <View style={styles.buttonContainer}> 
                     <RectButton style={styles.buttonSave} //Botão para Salvar
                     >   
