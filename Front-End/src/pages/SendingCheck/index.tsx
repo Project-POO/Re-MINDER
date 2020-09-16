@@ -1,28 +1,58 @@
 import React, {useState} from 'react';
-import {View, TextInput, Image,Text, FlatList, SafeAreaView, ScrollView} from 'react-native';
+import {View, TextInput, Image,Text, FlatList, SafeAreaView, ScrollView, Alert, Keyboard} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 
 import VectorIcon from '../../assets/images/icons/Vector.png';
 import SaveIcon from '../../assets/images/icons/Save.png';
 import AddIcon from '../../assets/images/icons/plus.png';
+import deleteIcon from '../../assets/images/icons/delete.png'
 
 import styles from './styles';
 
 function SendingPost () {
     const [textTitle, onChangeTitle] = useState(''); //const para
     const [textDate, onChangeDate] = useState(''); //o TextInput
-    const [task, updateTask] = useState('');
-    const [tasks, updateTasks] = useState([]);
-  
-    const handleAdd = () => {
-        if (task.trim()) {
-          updateTasks([...tasks, task]);
-          updateTask('');
-        }
-      };
+    
+    const [task, setTask] = useState([]);
+    const [newTask, setNewTask] = useState("");
 
-     const handleRenderTask = ({item}) => <Text style={styles.item}>{item}</Text>;
+    async function addTask() {
+        const search = task.filter(task => task === newTask);
+    
+        if (search.length !== 0) {
+          Alert.alert("Atenção", "Nome da tarefa repetido!");
+          return;
+        }     
+
+        setTask([...task, newTask]);
+        setNewTask("");
+    
+        Keyboard.dismiss();
+              
+        }
+
+        async function removeTask(item) {
+            Alert.alert(
+              "Deletar Task",
+              "Tem certeza que deseja remover esta anotação?",
+              [
+                {
+                  text: "Cancel",
+                  onPress: () => {
+                    return;
+                  },
+                  style: "cancel"
+                },
+                {
+                  text: "OK",
+                  onPress: () => setTask(task.filter(tasks => tasks !== item))
+                }
+              ],
+              { cancelable: false }
+            );
+          }
+    
 
     const {navigate} = useNavigation();
 
@@ -54,20 +84,27 @@ function SendingPost () {
             <View style= {styles.postContainer}>
                 <View style={styles.form}>
                 <TextInput
-                style={styles.field}
-                autoCapitalize="none"
-                autoCompleteType="off"
-                autoCorrect={false}
-                onChangeText={text => updateTask(text)}
-                value={task}
+                style={styles.checkText}
+                autoCorrect={true}
+                value={newTask}
+                onChangeText={text => setNewTask(text)}
                 />
                 </View>
                 <ScrollView>
                 <FlatList
-                data={tasks}
-                keyExtractor={item => item}
-                renderItem={handleRenderTask}
-                />
+                    data={task}
+                    keyExtractor={item => item.toString()}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item }) => (
+                        <View style={styles.form} >
+                            <Text style={styles.item}>{item}</Text>
+                                <RectButton onPress={() => removeTask(item)} 
+                                style={styles.buttonBar}>   
+                                    <Image source={deleteIcon} /> 
+                                </RectButton>
+                        </View>
+              )}
+            />
                 </ScrollView>
                 <View style={styles.buttonContainer}> 
                     <RectButton style={styles.buttonSave} //Botão para Salvar
@@ -75,7 +112,7 @@ function SendingPost () {
                         <Image source={SaveIcon} /> 
                     </RectButton> 
 
-                    <RectButton onPress={handleAdd} style={styles.buttonAdd}>
+                    <RectButton  onPress={() => addTask()} style={styles.buttonAdd}>
                     <Image source={AddIcon} />
                     </RectButton>
 
