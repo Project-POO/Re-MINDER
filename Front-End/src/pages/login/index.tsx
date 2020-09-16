@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {View, TextInput, Image, CheckBox} from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 
 import reMinder from '../../assets/images/logo/Logo.png';
 

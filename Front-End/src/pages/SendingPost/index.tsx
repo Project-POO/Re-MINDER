@@ -25,12 +25,14 @@ function SendingPost () {
             <View style={styles.headpostContainer}>
                 <TextInput style={styles.headpostTitle} //Título
                 placeholder = "Título "
+                keyboardType ="default"
                 placeholderTextColor ="#708090"
                 onChangeText={text => onChangeTitle(text)}
                 defaultValue={textTitle}
                 /> 
                 <TextInput style={styles.headpostDate}  //Data
                 placeholder = "dia/mês/ano "
+                keyboardType ="phone-pad"
                 placeholderTextColor ="#708090"
                 onChangeText={text => onChangeDate(text)}
                 defaultValue={textDate}

@@ -6,6 +6,31 @@ const styles = StyleSheet.create({
       backgroundColor: '#9C4C25',
     },
 
+    item: {
+      borderWidth: 1,
+      borderColor: '#8db529',
+      padding: 10,
+      marginTop: 15,
+      borderRadius: 3,
+      fontFamily: 'Poppins_400Regular',
+    },
+
+    form: {
+      flexDirection: 'row',
+    },
+
+    field: {
+      borderWidth: 1,
+      borderColor: '#8db529',
+      fontFamily: 'Poppins_400Regular',
+      padding: 10,
+      fontSize: 15,
+      color: '#333',
+      borderRadius: 5,
+      flex: 1,
+      marginRight: 10,
+    },
+
     headpostShadow: { // Sombra do Post-it
       backgroundColor: '#B0C265',
       marginTop: 40,
@@ -80,7 +105,8 @@ const styles = StyleSheet.create({
       height: 35, 
       borderRadius: 0, 
       width:35,
-      padding:1
+      padding:1,
+      alignSelf: 'center',
     },
 
   });

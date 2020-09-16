@@ -20,7 +20,7 @@ const FadeInView = () => {
   
     return (
       <Animated.View style={{opacity: fadeAnim }}>
-        <View style={styles.titleContainer}>
+        <View>
          <Image source={reMinder}/>
         </View>
         <Text style={styles.subTitle}>Clique aqui ou no título {'\n'} para acessar o mural!</Text>
