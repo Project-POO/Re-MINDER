@@ -7,8 +7,6 @@ export async function up(knex: Knex){
         table.timestamp('data')
             .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
             .notNullable();
-        table.text('content').notNullable();
-        
     });
 }
 

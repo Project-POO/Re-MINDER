@@ -1,20 +1,17 @@
 import express from 'express';
-import db from './database/connections';
+import ChecklistController from './controllers/ChecklistController';
+import PostitController from './controllers/PostitController';
 
 const routes = express.Router()
+const postitControllers = new PostitController;
+const checklistControllers = new ChecklistController;
 
-routes.post('/postIt', async (request, response) => {
-    const {
-        title,
-        content
-    } = request.body;
+//PostIt
+routes.get('/postIt', postitControllers.index);
+routes.post('/postIt', postitControllers.create)
 
-    await db('postit').insert({
-        title,
-        content,
-    });
-
-    return response.send();
-});
+//Checklist
+routes.get('/checklist', checklistControllers.index);
+routes.post('/checklist', checklistControllers.create);
 
 export default routes
