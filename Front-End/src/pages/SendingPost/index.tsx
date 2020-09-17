@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, {useEffect, useState} from 'react';
 import {View, TextInput, Image} from 'react-native';
+=======
+import React, {useState} from 'react';
+import {View, TextInput, Image, ScrollView} from 'react-native';
+>>>>>>> f19ea5862d5fbc13fc9ed8832f52de97b9919302
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 
@@ -58,14 +63,19 @@ function SendingPost () {
             </View>
             <View style={styles.postContainerShadow}>
             <View style= {styles.postContainer}>
-                <TextInput style={styles.postText} //Texto do Post-it
+                <ScrollView>
+                <TextInput 
+                style={styles.postText}
+                textAlignVertical = "top"
+                autoCapitalize="none"
+                autoCompleteType="off"
+                autoCorrect={false}//Texto do Post-it
                 multiline={true}
-                numberOfLines={50}
-                placeholder = "Digite o Texto aqui! "
-                placeholderTextColor ="#708090"
+                numberOfLines={40}
                 onChangeText={text => onChangePost(text)}
                 defaultValue={textPost}
                 />
+                </ScrollView>
                 <View style={styles.buttonContainer}> 
                     <RectButton onPress={SavePostit} style={styles.buttonSave} //Botão para Salvar 
                     > 

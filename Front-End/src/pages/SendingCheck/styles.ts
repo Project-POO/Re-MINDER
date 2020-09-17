@@ -13,19 +13,19 @@ const styles = StyleSheet.create({
       marginTop: 15,
       borderRadius: 3,
       fontFamily: 'Poppins_400Regular',
+      width: '90%',
     },
 
     form: {
       flexDirection: 'row',
     },
 
-    field: {
+    checkText: {
       borderWidth: 1,
       borderColor: '#8db529',
       fontFamily: 'Poppins_400Regular',
       padding: 10,
       fontSize: 15,
-      color: '#333',
       borderRadius: 5,
       flex: 1,
       marginRight: 10,
@@ -73,11 +73,6 @@ const styles = StyleSheet.create({
       maxHeight: 400, //AJUSTAR
     },
 
-    postText: { //Fonte do Post-it
-      fontFamily: 'Poppins_400Regular',
-      height: 320,//AJUSTAR
-    },
-
     buttonContainer:{ //Container do Botão
       height: 30,
       backgroundColor: '#BEDE6C',
@@ -107,6 +102,14 @@ const styles = StyleSheet.create({
       width:35,
       padding:1,
       alignSelf: 'center',
+    },
+
+    buttonBar:{ //Botão de Adicionar
+      height: 30, 
+      borderRadius: 0, 
+      width:25,
+      padding:1,
+      alignSelf: 'flex-end',
     },
 
   });

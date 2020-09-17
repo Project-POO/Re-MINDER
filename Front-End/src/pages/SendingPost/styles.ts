@@ -50,7 +50,14 @@ const styles = StyleSheet.create({
     },
 
     postText: { //Fonte do Post-it
+      borderWidth: 1,
+      borderColor: '#fff371',
       fontFamily: 'Poppins_400Regular',
+      padding: 10,
+      fontSize: 15,
+      borderRadius: 5,
+      flex: 1,
+      marginRight: 10,
       height: 320,//AJUSTAR
     },
 
