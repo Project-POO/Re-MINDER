@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, {useEffect, useState} from 'react';
-import {View, TextInput, Image} from 'react-native';
-=======
 import React, {useState} from 'react';
-import {View, TextInput, Image, ScrollView} from 'react-native';
->>>>>>> f19ea5862d5fbc13fc9ed8832f52de97b9919302
+import {View, TextInput, Image, ScrollView, Button} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 
@@ -24,21 +19,25 @@ function SendingPost () {
     function navigateToLandingPage() {
         navigate('LandingPage');
     }
-    function SavePostit(){
-        api.post('postIt', {
+
+    async function SavePostit(){
+        console.log("teste");
+        // api.post('postIt', {
+        //     title: textTitle,
+        //     content: textPost
+        // }).then(() => {console.log("teste")
+            
+        //     navigateToLandingPage()
+        // }).catch(() => {
+        //     alert('faiou')
+        // })
+
+        const res = await api.post("postIt", {
             title: textTitle,
             content: textPost
-        }).then(() => {
-            
-            navigateToLandingPage()
-        }).catch(() => {
-            alert('faiou')
-        })
+        });
 
-        // console.log({
-        //     textTitle,
-        //     textPost,
-        // })
+        console.log(res);
     }
 
     return (
@@ -77,11 +76,12 @@ function SendingPost () {
                 />
                 </ScrollView>
                 <View style={styles.buttonContainer}> 
-                    <RectButton onPress={SavePostit} style={styles.buttonSave} //Botão para Salvar 
+                    <RectButton onPress={() => SavePostit()} style={styles.buttonSave} //Botão para Salvar 
                     > 
                         <Image source={SaveIcon}/> 
                         
-                    </RectButton> 
+                    </RectButton>
+                  
                     <RectButton onPress={navigateToLandingPage} style={styles.buttonVec} //Botão para Voltar
                     >
                         <Image source={VectorIcon} />

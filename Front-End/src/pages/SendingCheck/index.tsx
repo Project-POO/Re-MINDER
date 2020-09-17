@@ -9,6 +9,7 @@ import AddIcon from '../../assets/images/icons/plus.png';
 import deleteIcon from '../../assets/images/icons/delete.png'
 
 import styles from './styles';
+import api from '../../services/api';
 
 function SendingPost () {
     const [textTitle, onChangeTitle] = useState(''); //const para
@@ -32,27 +33,36 @@ function SendingPost () {
               
         }
 
-        async function removeTask(item) {
-            Alert.alert(
-              "Deletar Task",
-              "Tem certeza que deseja remover esta anotação?",
-              [
-                {
-                  text: "Cancel",
-                  onPress: () => {
-                    return;
-                  },
-                  style: "cancel"
-                },
-                {
-                  text: "OK",
-                  onPress: () => setTask(task.filter(tasks => tasks !== item))
-                }
-              ],
-              { cancelable: false }
-            );
-          }
-    
+    async function removeTask(item: any) {
+        Alert.alert(
+          "Deletar Task",
+          "Tem certeza que deseja remover esta anotação?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => {
+                return;
+              },
+              style: "cancel"
+            },
+            {
+              text: "OK",
+              onPress: () => setTask(task.filter(tasks => tasks !== item))
+            }
+          ],
+          { cancelable: false }
+        );
+      }
+
+    async function saveTask() {
+
+      await api.post("checklist", {
+        title: textTitle,
+        valor: JSON.stringify(task),
+        check: true
+      });
+    }
+
 
     const {navigate} = useNavigation();
 
@@ -107,7 +117,7 @@ function SendingPost () {
             />
                 </ScrollView>
                 <View style={styles.buttonContainer}> 
-                    <RectButton style={styles.buttonSave} //Botão para Salvar
+                    <RectButton style={styles.buttonSave} onPress={() => saveTask()}//Botão para Salvar
                     >   
                         <Image source={SaveIcon} /> 
                     </RectButton> 
