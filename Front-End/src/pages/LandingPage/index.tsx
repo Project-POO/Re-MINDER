@@ -86,7 +86,7 @@ function Landing() {
             </View>
 
 
-            <ScrollView>
+            <ScrollView style={styles.PostView}>
 
             {
                 checklists.map((item, index) => {
@@ -118,7 +118,7 @@ function Landing() {
             }
             {
                 postItList.map((item, index) => {
-                    if(item.id > 5) {
+                    if(true) {
                         return (
                             <RectButton>
                                 <View style={stylesA.posts}>
@@ -140,16 +140,7 @@ function Landing() {
             </ScrollView>
         
           
-            
-
-
-
-
-
-            <View //ESSA VIEW É DEDICADA AO POST-IT
-            style={styles.PostView}>
-            
-            </View> 
+        
             <View style ={styles.buttonsContainer}>   
                 <RectButton onPress={navigateToSendingCheck} style={[styles.button, styles.buttonPrimary]}> 
                     <Image source={check} /> 

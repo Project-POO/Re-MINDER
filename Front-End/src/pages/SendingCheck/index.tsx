@@ -63,7 +63,6 @@ function SendingPost () {
       });
     }
 
-
     const {navigate} = useNavigation();
 
     function navigateToLandingPage() {
