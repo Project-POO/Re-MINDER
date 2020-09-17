@@ -14,12 +14,6 @@ function SendingPost () {
     const[textDate, onChangeDate] = useState(''); //o TextInput
     const[textPost, onChangePost] = useState('');
 
-    const {navigate} = useNavigation();
-
-    function navigateToLandingPage() {
-        navigate('LandingPage');
-    }
-
     async function SavePostit(){
         console.log("teste");
         // api.post('postIt', {
@@ -38,6 +32,12 @@ function SendingPost () {
         });
 
         console.log(res);
+    }
+
+    const { goBack } = useNavigation();
+    
+    function handleNavigateBack() {
+        goBack();
     }
 
     return (
@@ -82,7 +82,7 @@ function SendingPost () {
                         
                     </RectButton>
                   
-                    <RectButton onPress={navigateToLandingPage} style={styles.buttonVec} //Botão para Voltar
+                    <RectButton onPress={handleNavigateBack} style={styles.buttonVec} //Botão para Voltar
                     >
                         <Image source={VectorIcon} />
                     </RectButton>

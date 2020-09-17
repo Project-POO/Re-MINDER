@@ -8,18 +8,11 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: 40,
-        fontFamily: 'Poppins_400Regular',
-        color: '#FFF07F',
         marginTop: 30,    
         alignSelf:'center',
-        fontWeight: 'bold',
     },
 
-    PostView:{
-        flex:1,
-        backgroundColor: '#9C4C25', //esse style todo foi feito pra ser o local onde vai entrar os post-it
-    },
+    //BOTÕES
 
     buttonsContainer:{
         flexDirection:'row',
@@ -70,6 +63,60 @@ const styles = StyleSheet.create({
         fontSize: 10,
         marginTop: 2, 
     },
+
+    // A PARTIR DAQUI SÃO OS POST-ITS QUE IRÃO APARECER NA LANDINGPAGE
+
+    PostView:{
+        flex:1,
+        flexDirection:'row',
+        backgroundColor:'#9C4C25',
+         //esse style todo foi feito pra ser o local onde vai entrar os post-it
+    },
+
+    PostButtonContainer:{
+        backgroundColor: '#9C4C25',
+        width: '80%',
+        marginTop: 10,
+        marginRight:4,
+        alignSelf:'center',
+    },
+
+    CheckButtonContainer:{
+        backgroundColor: '#9C4C25',
+        width: '80%',
+        marginTop: 10,
+        alignSelf:'center',
+    },
+
+    checksHead: {
+        padding: 5,
+        backgroundColor: "#C1D66D",
+    },
+
+    checksText: {
+        backgroundColor: "#CEF274",
+    },
+
+    postsHead: {
+        padding: 5,
+        backgroundColor: "#FFF07F",
+    },
+
+    postsText: {
+        backgroundColor: "#FFF8AA",
+    },
+
+    textPost: {
+        color: "black",
+        fontFamily: 'Poppins_400Regular'
+    },
+
+    titlePost: {
+        color: "black",
+        fontFamily: 'Kalam_700Bold',
+        fontSize: 19,
+    },
+
 
 });
 

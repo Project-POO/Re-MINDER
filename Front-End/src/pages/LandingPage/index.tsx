@@ -17,25 +17,6 @@ function Landing() {
     const [checklists, setChecklists] = useState([]);
     const [postItList, setPostItList] = useState([]);
 
-    const stylesA = StyleSheet.create({
-        checks: {
-            padding: 20,
-            backgroundColor: "#f6f3",
-            margin: 5
-
-        },
-        posts: {
-            padding: 20,
-            backgroundColor: "#ff33",
-            margin: 5
-        },
-        value: {
-            color: "black"
-        }
-    });
-
-    
-
     function navigateToSendingPost() {
         navigate('SendingPost');
     }
@@ -44,12 +25,15 @@ function Landing() {
         navigate('SendingCheck');
     }
 
+
+    
+
     async function getChecklist(){
         const {data} = await api.get("checklist");
 
 
         const info = data.map(({ check, checklist_id, data, id, title, valor }, index) => {
-            if(id > 5){
+            if(true){
                 let value = JSON.parse(valor).map((item, index) => ({ value: item }));
                 
                 return ({
@@ -85,27 +69,27 @@ function Landing() {
              <Image source={reMinder}/>
             </View>
 
-
-            <ScrollView style={styles.PostView}>
-
+                   
+            <View style={styles.PostView}> 
+                <ScrollView>  
             {
                 checklists.map((item, index) => {
                     if(item) {
                         return (
-                            <RectButton key={index}>
-                                <View style={stylesA.checks}>
-                                    <Text>{item?.title}</Text>
-                                    
+                            <RectButton style={styles.CheckButtonContainer} key={index}>
+                                <View style={styles.checksHead}>
+                                    <Text style={styles.titlePost}>{item?.title}</Text>    
+                                    <View style={styles.checksText}>   
                                         {
                                             item.valor.map((item, index) => (
-                                                <Text>- {item.value}</Text>
+                                                <Text style={styles.textPost}>- {item.value}</Text>
                                             ))
                                         }
-                                        
-                                    
-                                    <Text>{item?.data}</Text>
+                                  
+                                    <Text style={styles.textPost}>{item?.data}</Text>
                                     <Text>{item?.check === 1 ? "true" : false}</Text>
-                                </View>
+                                    </View>
+                                    </View>
                             </RectButton>
                         );
                     }
@@ -116,16 +100,20 @@ function Landing() {
                     }
                 })
             }
+                </ScrollView> 
+                <ScrollView>
             {
                 postItList.map((item, index) => {
                     if(true) {
                         return (
-                            <RectButton>
-                                <View style={stylesA.posts}>
-                                    <Text>{item.title}</Text>
-                                    <Text style={stylesA.value}>{item.content}</Text>
+                            <RectButton style={styles.PostButtonContainer}>
+                                <View style={styles.postsHead}>
+                                    <Text style={styles.titlePost}>{item.title}</Text>
+                                <View style={styles.postsText}>    
+                                    <Text style={styles.textPost}>{item.content}</Text>
                                     {/* <Text>{item.data}</Text> */}
                                     {/* <Text>{item.check === 1 ? "true" : false}</Text> */}
+                                </View>
                                 </View>
                             </RectButton>
                         );
@@ -138,6 +126,9 @@ function Landing() {
                 })
             }
             </ScrollView>
+            </View> 
+            
+            
         
           
         
@@ -147,7 +138,7 @@ function Landing() {
                     <Text style ={styles.buttontext1}>CHECKLIST </Text>
                 </RectButton>
                 
-                <RectButton style={[styles.button, styles.buttonSecondary]}> 
+                <RectButton onpress={navigateReload} style={[styles.button, styles.buttonSecondary]}> 
                     <Image source={lupa} /> 
                     <Text style ={styles.buttontext2}>PESQUISAR </Text>
                 </RectButton>

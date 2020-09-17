@@ -63,10 +63,10 @@ function SendingPost () {
       });
     }
 
-    const {navigate} = useNavigation();
-
-    function navigateToLandingPage() {
-        navigate('LandingPage');
+    const { goBack} = useNavigation();
+    
+    function handleNavigateBack() {
+        goBack();
     }
 
     return (
@@ -125,7 +125,7 @@ function SendingPost () {
                     <Image source={AddIcon} />
                     </RectButton>
 
-                    <RectButton onPress={navigateToLandingPage} style={styles.buttonVec} //Botão para Voltar
+                    <RectButton onPress={handleNavigateBack} style={styles.buttonVec} //Botão para Voltar
                     >
                         <Image source={VectorIcon} />
                     </RectButton>
