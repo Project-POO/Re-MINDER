@@ -25,14 +25,6 @@ function Landing() {
         navigate('SendingCheck');
     }
 
-    function navigateToCheckView(){
-        navigate('CheckView')
-    }
-
-    function navigateToPostView(){
-        navigate('PostView')
-    }
-
     async function getChecklist(){
         const {data} = await api.get("checklist");
 
@@ -123,7 +115,7 @@ function Landing() {
                 checklists.map((item, index) => {
                     if(item) {
                         return (
-                            <RectButton onPress={navigateToCheckView} style={styles.CheckButtonContainer} key={index}>
+                            <RectButton style={styles.CheckButtonContainer} key={index}>
                                 <View style={styles.checksHead}>
                                     <Text style={styles.titlePost}>{item?.title}</Text>    
                                     <View style={styles.checksText}>   
@@ -134,7 +126,6 @@ function Landing() {
                                         }
                                   
                                     <Text style={styles.textPost}>{item?.data}</Text>
-                                    {/*<Text>{item?.check === 1 ? "true" : false}</Text>*/}
                                     <RectButton onPress={() => removeCheck(item)} 
                                         style={styles.buttonBar}>   
                                         <Image source={deleteIcon}/> 
@@ -158,13 +149,11 @@ function Landing() {
                 postItList.map((item, index) => {
                     if(true) {
                         return (
-                            <RectButton onPress={navigateToPostView} style={styles.PostButtonContainer}>
+                            <RectButton style={styles.PostButtonContainer}>
                                 <View style={styles.postsHead}>
                                     <Text style={styles.titlePost}>{item.title}</Text>
                                 <View style={styles.postsText}>    
                                     <Text style={styles.textPost}>{item.content}</Text>
-                                    {/* <Text>{item.data}</Text> */}
-                                    {/* <Text>{item.check === 1 ? "true" : false}</Text> */}
                                     <RectButton onPress={() => removePost(item)} 
                                         style={styles.buttonBar}>   
                                         <Image source={deleteIcon}/> 
