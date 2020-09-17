@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
-import { RectButton, ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
+import {View, Text, Image, Alert} from 'react-native';
+import { RectButton, ScrollView} from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 
 import styles from './styles'
 
 import check from '../../assets/images/icons/check.png';
-import lupa from '../../assets/images/icons/lupa.png';
+import deleteIcon from '../../assets/images/icons/delete.png'
 import post from '../../assets/images/icons/post.png';
 import reMinder from '../../assets/images/logo/LogoSmall.png';
 import api from '../../services/api';
@@ -61,13 +61,55 @@ function Landing() {
         getPost();
     }, [])
 
+
+    async function removeCheck(item: any) {
+        Alert.alert(
+          "Deletar Post",
+          "Tem certeza que deseja remover?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => {
+                return;
+              },
+              style: "cancel"
+            },
+            {
+              text: "OK",
+              onPress: () => setChecklists(checklists.filter( checklists => checklists !== item))
+            }
+          ],
+          { cancelable: false }
+        );
+      }
+
+      async function removePost(item: any) {
+        Alert.alert(
+          "Deletar Post",
+          "Tem certeza que deseja remover?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => {
+                return;
+              },
+              style: "cancel"
+            },
+            {
+              text: "OK",
+              onPress: () => setPostItList(postItList.filter( postItList => postItList !== item))
+            }
+          ],
+          { cancelable: false }
+        );
+      }
+
     return (
         <View style={styles.container}>
             <View style={styles.title}>
              <Image source={reMinder}/>
             </View>
 
-                   
             <View style={styles.PostView}> 
                 <ScrollView>  
             {
@@ -85,10 +127,15 @@ function Landing() {
                                         }
                                   
                                     <Text style={styles.textPost}>{item?.data}</Text>
-                                    <Text>{item?.check === 1 ? "true" : false}</Text>
+                                    {/*<Text>{item?.check === 1 ? "true" : false}</Text>*/}
+                                    <RectButton onPress={() => removeCheck(item)} 
+                                        style={styles.buttonBar}>   
+                                        <Image source={deleteIcon}/> 
+                                    </RectButton>
                                     </View>
                                     </View>
                             </RectButton>
+
                         );
                     }
                     else {
@@ -111,6 +158,10 @@ function Landing() {
                                     <Text style={styles.textPost}>{item.content}</Text>
                                     {/* <Text>{item.data}</Text> */}
                                     {/* <Text>{item.check === 1 ? "true" : false}</Text> */}
+                                    <RectButton onPress={() => removePost(item)} 
+                                        style={styles.buttonBar}>   
+                                        <Image source={deleteIcon}/> 
+                                    </RectButton>
                                 </View>
                                 </View>
                             </RectButton>
@@ -132,14 +183,9 @@ function Landing() {
                     <Text style ={styles.buttontext1}>CHECKLIST </Text>
                 </RectButton>
                 
-                <RectButton onpress={navigateReload} style={[styles.button, styles.buttonSecondary]}> 
-                    <Image source={lupa} /> 
-                    <Text style ={styles.buttontext2}>PESQUISAR </Text>
-                </RectButton>
-
-                <RectButton onPress={navigateToSendingPost} style={[styles.button, styles.buttonTertiary]}>
+                <RectButton onPress={navigateToSendingPost} style={[styles.button, styles.buttonSecondary]}>
                     <Image source={post} />
-                    <Text style ={styles.buttontext3}>POST-IT </Text>
+                    <Text style ={styles.buttontext2}>POST-IT </Text>
                 </RectButton>
             </View>
         </View>  

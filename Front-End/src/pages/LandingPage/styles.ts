@@ -29,20 +29,14 @@ const styles = StyleSheet.create({
     buttonPrimary:{
         marginTop: 3, //3
         //paddingHorizontal: 30, //30
-        width: '33%'
+        width: '50%'
     },
     
     buttonSecondary:{
         marginTop: 3,
-        width: '33%'
+        width: '50%'
     },
 
-    buttonTertiary:{
-        marginTop: 3, //3
-        width: '33%'
-        //paddingHorizontal: 30, //30
-    },
-    
     buttontext1:{
         fontFamily: 'Poppins_400Regular',
         color: '#333',
@@ -51,13 +45,6 @@ const styles = StyleSheet.create({
     },
 
     buttontext2:{
-        fontFamily: 'Poppins_400Regular',
-        color: '#333',
-        fontSize: 10,
-        marginTop: 8,
-    },
-
-    buttontext3:{
         fontFamily: 'Poppins_400Regular',
         color: '#333',
         fontSize: 10,
@@ -75,7 +62,8 @@ const styles = StyleSheet.create({
 
     PostButtonContainer:{
         backgroundColor: '#9C4C25',
-        width: '80%',
+        maxWidth: '80%',
+        minWidth:'80%',
         marginTop: 10,
         marginRight:4,
         alignSelf:'center',
@@ -83,7 +71,8 @@ const styles = StyleSheet.create({
 
     CheckButtonContainer:{
         backgroundColor: '#9C4C25',
-        width: '80%',
+        maxWidth: '80%',
+        minWidth:'80%',
         marginTop: 10,
         alignSelf:'center',
     },
@@ -117,6 +106,13 @@ const styles = StyleSheet.create({
         fontSize: 19,
     },
 
+    buttonBar:{ //Botão de Adicionar
+        height: 30, 
+        borderRadius: 0, 
+        width:25,
+        padding:1,
+        alignSelf: 'flex-end',
+      },
 
 });
 
