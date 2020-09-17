@@ -25,6 +25,13 @@ function Landing() {
         navigate('SendingCheck');
     }
 
+    function navigateToCheckView(){
+        navigate('CheckView')
+    }
+
+    function navigateToPostView(){
+        navigate('PostView')
+    }
 
     async function getChecklist(){
         const {data} = await api.get("checklist");
@@ -116,7 +123,7 @@ function Landing() {
                 checklists.map((item, index) => {
                     if(item) {
                         return (
-                            <RectButton style={styles.CheckButtonContainer} key={index}>
+                            <RectButton onPress={navigateToCheckView} style={styles.CheckButtonContainer} key={index}>
                                 <View style={styles.checksHead}>
                                     <Text style={styles.titlePost}>{item?.title}</Text>    
                                     <View style={styles.checksText}>   
@@ -151,7 +158,7 @@ function Landing() {
                 postItList.map((item, index) => {
                     if(true) {
                         return (
-                            <RectButton style={styles.PostButtonContainer}>
+                            <RectButton onPress={navigateToPostView} style={styles.PostButtonContainer}>
                                 <View style={styles.postsHead}>
                                     <Text style={styles.titlePost}>{item.title}</Text>
                                 <View style={styles.postsText}>    
