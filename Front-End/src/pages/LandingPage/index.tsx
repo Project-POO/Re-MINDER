@@ -26,8 +26,6 @@ function Landing() {
     }
 
 
-    
-
     async function getChecklist(){
         const {data} = await api.get("checklist");
 
@@ -128,10 +126,6 @@ function Landing() {
             </ScrollView>
             </View> 
             
-            
-        
-          
-        
             <View style ={styles.buttonsContainer}>   
                 <RectButton onPress={navigateToSendingCheck} style={[styles.button, styles.buttonPrimary]}> 
                     <Image source={check} /> 
